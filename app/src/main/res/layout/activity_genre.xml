@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".ui.activity.home.MainActivity">
+    tools:context=".ui.activity.genre.GenreActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,7 +23,6 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvGenre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Genre"
@@ -30,10 +30,9 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Koleksi Film"
+                android:text="Pilih Genre Kesukaan Kamu"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -41,18 +40,17 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGenre"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="10dp">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:listitem="@layout/item_genre" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMovie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/item_movie" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

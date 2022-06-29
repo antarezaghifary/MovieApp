@@ -15,7 +15,7 @@ val networkModule = module {
                 null,
                 true
             ),
-            ""
+            "https://api.themoviedb.org/3/"
         )
     }
 }

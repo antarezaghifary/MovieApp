@@ -9,17 +9,17 @@
         android:id="@+id/imgMovie"
         android:layout_width="150dp"
         android:layout_height="175dp"
-        android:src="@color/purple_200"/>
+        android:src="@color/purple_200" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/imgMovie"
         android:layout_marginStart="16dp"
-        android:textSize="16sp"
+        android:layout_toRightOf="@id/imgMovie"
+        android:text="Judul Movie"
         android:textColor="#000"
-        android:text="Judul Movie"/>
+        android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDescription"
