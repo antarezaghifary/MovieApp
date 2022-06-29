@@ -63,7 +63,6 @@ class DetailMovieActivity : AppCompatActivity() {
             tvRate.text = "Vote Average : " + intent.getStringExtra("vote")
             Glide.with(this@DetailMovieActivity)
                 .load(intent.getStringExtra("poster"))
-                .skipMemoryCache(true)
                 .centerCrop()
                 .into(imgMovie)
 
