@@ -10,6 +10,8 @@ import org.koin.core.component.inject
 class UserRepository : KoinComponent {
 
     private val api: MyApi by inject()
+    private val apiKey: String = "34d28168ca773abb8e7098976e940a85"
+    private val language: String = "en-US"
 
     fun movie(
         page: Int,
@@ -18,9 +20,9 @@ class UserRepository : KoinComponent {
         return api.movie(
             page,
             10,
-            "34d28168ca773abb8e7098976e940a85",
+            apiKey,
             with_genres,
-            "en-US",
+            language,
         ).map {
             it.results
         }
@@ -28,10 +30,25 @@ class UserRepository : KoinComponent {
 
     fun genre(): Single<List<GenresItem>> {
         return api.genre(
-            "34d28168ca773abb8e7098976e940a85",
-            "en-US"
+            apiKey,
+            language
         ).map {
             it.genres
+        }
+    }
+
+    fun review(
+        page: Int,
+        movie_id: Int
+    ): Single<List<com.test.movieapp.data.model.review.ResultsItem>> {
+        return api.review(
+            movie_id,
+            page,
+            3,
+            apiKey,
+            language,
+        ).map {
+            it.results
         }
     }
 

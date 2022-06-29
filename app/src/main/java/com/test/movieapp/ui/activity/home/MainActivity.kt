@@ -1,5 +1,6 @@
 package com.test.movieapp.ui.activity.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -70,9 +72,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun getDetail(data: ResultsItem) {
         val intent = Intent(this, DetailMovieActivity::class.java)
+        intent.putExtra("id", data.id)
         intent.putExtra("title", data.title)
         intent.putExtra("original_title", data.originalTitle)
         intent.putExtra("image", "https://image.tmdb.org/t/p/w185" + data.backdropPath)
+        intent.putExtra("poster", "https://image.tmdb.org/t/p/w185" + data.posterPath)
         intent.putExtra("overview", data.overview)
         intent.putExtra("rilis", data.releaseDate)
         intent.putExtra("vote", data.voteAverage.toString())
