@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bg_back_button.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_black_filter.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_arrow_24dp.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_play.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/img_alert_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_detail_movie.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_genre.xml" value="0.15" />
@@ -13,6 +15,7 @@
         <entry key="app/src/main/res/layout/item_genre.xml" value="0.17" />
         <entry key="app/src/main/res/layout/item_movie.xml" value="0.17" />
         <entry key="app/src/main/res/layout/item_review.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/item_trailer.xml" value="0.14" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.25" />
       </map>
     </option>

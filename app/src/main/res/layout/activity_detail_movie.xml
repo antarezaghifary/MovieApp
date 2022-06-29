@@ -126,11 +126,30 @@
                 android:text="Rangkuman"
                 android:textSize="18sp" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTrailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvDescription"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="32dp"
+                android:text="Trailer"
+                android:textSize="26dp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTrailer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTrailer"
+                android:layout_marginTop="16dp"
+                tools:listitem="@layout/item_trailer" />
+
             <TextView
                 android:id="@+id/tvUlasan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvDescription"
+                android:layout_below="@+id/rvTrailer"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="32dp"
                 android:text="Review Pengguna"
@@ -144,6 +163,24 @@
                 android:layout_below="@+id/tvUlasan"
                 android:layout_marginTop="16dp"
                 tools:listitem="@layout/item_review" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgAlert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvUlasan"
+                android:src="@drawable/img_alert_movie"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAlert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgAlert"
+                android:gravity="center"
+                android:text="Data Tidak Tersedia"
+                android:visibility="gone" />
 
         </RelativeLayout>
 

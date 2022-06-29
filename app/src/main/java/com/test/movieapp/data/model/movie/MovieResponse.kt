@@ -2,7 +2,7 @@ package com.test.movieapp.data.model.movie
 
 import com.google.gson.annotations.SerializedName
 
-data class PopularResponse(
+data class MovieResponse(
 
     @field:SerializedName("page")
     val page: Int? = null,

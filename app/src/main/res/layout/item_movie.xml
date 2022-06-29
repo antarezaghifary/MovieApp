@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="24dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="4dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imgMovie"
-        android:layout_width="150dp"
-        android:layout_height="175dp"
-        android:scaleType="fitXY"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvTitle"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toRightOf="@id/imgMovie"
-        android:text="Judul Movie"
-        android:textColor="#000"
-        android:textSize="16sp" />
+        android:padding="24dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgMovie"
+            android:layout_width="150dp"
+            android:layout_height="175dp"
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toRightOf="@id/imgMovie"
+            android:text="Judul Movie"
+            android:textColor="#000"
+            android:textSize="16sp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDescription"
@@ -31,7 +40,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:maxLines="4"
-        android:text="Ini Deskripsi Movie"/>
+        android:text="Ini Deskripsi Movie" />
 
-
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

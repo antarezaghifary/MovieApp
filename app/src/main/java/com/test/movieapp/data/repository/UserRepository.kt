@@ -1,7 +1,7 @@
 package com.test.movieapp.data.repository
 
 import com.test.movieapp.data.model.genre.GenresItem
-import com.test.movieapp.data.model.movie.ResultsItem
+import com.test.movieapp.data.model.video.ThumbnailResponse
 import com.test.movieapp.data.network.MyApi
 import io.reactivex.Single
 import org.koin.core.component.KoinComponent
@@ -16,7 +16,7 @@ class UserRepository : KoinComponent {
     fun movie(
         page: Int,
         with_genres: Int
-    ): Single<List<ResultsItem>> {
+    ): Single<List<com.test.movieapp.data.model.movie.ResultsItem>> {
         return api.movie(
             page,
             10,
@@ -47,6 +47,27 @@ class UserRepository : KoinComponent {
             3,
             apiKey,
             language,
+        ).map {
+            it.results
+        }
+    }
+
+    fun thumbnail(
+        movie_id: Int
+    ): Single<ThumbnailResponse> {
+        return api.thumbnail(
+            movie_id,
+            "videos",
+            apiKey
+        )
+    }
+
+    fun trailer(
+        movie_id: Int
+    ): Single<List<com.test.movieapp.data.model.trailer.ResultsItem>> {
+        return api.trailer(
+            movie_id,
+            apiKey
         ).map {
             it.results
         }

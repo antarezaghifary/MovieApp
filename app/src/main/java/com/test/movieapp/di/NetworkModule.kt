@@ -2,6 +2,7 @@ package com.test.movieapp.di
 
 import com.oratakashi.viewbinding.core.tools.retrofit.createOkHttpClient
 import com.oratakashi.viewbinding.core.tools.retrofit.createReactiveService
+import com.test.movieapp.BuildConfig
 import com.test.movieapp.data.network.MyApi
 import org.koin.dsl.module
 
@@ -15,7 +16,7 @@ val networkModule = module {
                 null,
                 true
             ),
-            "https://api.themoviedb.org/3/"
+            BuildConfig.BASE_URL
         )
     }
 }

@@ -2,23 +2,31 @@ package com.test.movieapp.ui.activity.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
+import com.oratakashi.viewbinding.core.tools.toast
 import com.test.movieapp.R
+import com.test.movieapp.data.model.trailer.ResultsItem
 import com.test.movieapp.databinding.ActivityDetailMovieBinding
 import com.test.movieapp.util.VmData
 
 
 class DetailMovieActivity : AppCompatActivity() {
-
     private val binding: ActivityDetailMovieBinding by viewBinding()
     private val viewModel: DetailMovieViewModel by viewModels()
     private val adapter: DetailMovieAdapter by lazy {
         DetailMovieAdapter()
+    }
+
+    private val trailerAdapter: TrailerAdapter by lazy {
+        TrailerAdapter {
+            getDetailVideo(it)
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -60,12 +68,13 @@ class DetailMovieActivity : AppCompatActivity() {
 
             val idMovie = intent.getIntExtra("id", 0)
             viewModel.initPaging(this@DetailMovieActivity, idMovie)
+            viewModel.trailer(idMovie)
         }
 
-        setObservableReview()
+        setObservableData()
     }
 
-    private fun setObservableReview() {
+    private fun setObservableData() {
         viewModel.review.observe(this) {
             when (it) {
                 is VmData.Loading -> {
@@ -73,7 +82,9 @@ class DetailMovieActivity : AppCompatActivity() {
                 }
 
                 is VmData.Empty -> {
-
+                    binding.rvReview.visibility = View.GONE
+                    binding.imgAlert.visibility = View.VISIBLE
+                    binding.tvAlert.visibility = View.VISIBLE
                 }
 
                 is VmData.Success -> {
@@ -87,7 +98,33 @@ class DetailMovieActivity : AppCompatActivity() {
             binding.rvReview.adapter = adapter
             binding.rvReview.layoutManager = LinearLayoutManager(this)
         }
+
+        viewModel.trailer.observe(this) {
+            when (it) {
+                is VmData.Loading -> {
+
+                }
+
+                is VmData.Empty -> {
+                }
+
+                is VmData.Success -> {
+                    trailerAdapter.addAll(it.data)
+                }
+                is VmData.Failure -> {
+
+                }
+            }
+            binding.rvTrailer.adapter = trailerAdapter
+            binding.rvTrailer.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        }
     }
+
+    private fun getDetailVideo(data: ResultsItem) {
+        toast("${data.name}")
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         finish()

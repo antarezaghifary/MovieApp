@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Movie App</string>
+    <string name="placeholder_thumbs" translatable="false">https://img.youtube.com/vi/%1$s/0.jpg</string>
 </resources>
