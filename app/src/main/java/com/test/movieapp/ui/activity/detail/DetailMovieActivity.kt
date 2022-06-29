@@ -1,6 +1,7 @@
 package com.test.movieapp.ui.activity.detail
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -9,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
-import com.oratakashi.viewbinding.core.tools.toast
 import com.test.movieapp.R
 import com.test.movieapp.data.model.trailer.ResultsItem
 import com.test.movieapp.databinding.ActivityDetailMovieBinding
+import com.test.movieapp.ui.activity.trailer.TrailerActivity
 import com.test.movieapp.util.VmData
 
 
@@ -122,7 +123,10 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private fun getDetailVideo(data: ResultsItem) {
-        toast("${data.name}")
+        val intent = Intent(this, TrailerActivity::class.java)
+        intent.putExtra("id", data.key)
+        intent.putExtra("name", data.name)
+        startActivity(intent)
     }
 
 

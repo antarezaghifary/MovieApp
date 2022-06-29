@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
 import com.test.movieapp.data.model.genre.GenresItem
 import com.test.movieapp.databinding.ActivityGenreBinding
@@ -52,7 +52,7 @@ class GenreActivity : AppCompatActivity() {
                 }
             }
             binding.rvGenre.adapter = adapter
-            binding.rvGenre.layoutManager = LinearLayoutManager(this)
+            binding.rvGenre.layoutManager = GridLayoutManager(this, 2)
         }
     }
 
