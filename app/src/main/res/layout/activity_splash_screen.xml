@@ -32,6 +32,7 @@
         android:layout_marginTop="24dp"
         android:text="MovieZ"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 

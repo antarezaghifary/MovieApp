@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.oratakashi.viewbinding.core.binding.recyclerview.ViewHolder
 import com.oratakashi.viewbinding.core.binding.recyclerview.viewBinding
-import com.test.movieapp.data.model.popular.GenresItem
+import com.test.movieapp.data.model.genre.GenresItem
 import com.test.movieapp.databinding.ItemGenreBinding
 
 class GenreAdapter(

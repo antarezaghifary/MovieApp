@@ -7,11 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
 import com.oratakashi.viewbinding.core.tools.toast
-import com.test.movieapp.data.model.popular.ResultsItem
+import com.test.movieapp.data.model.movie.ResultsItem
 import com.test.movieapp.databinding.ActivityMainBinding
 import com.test.movieapp.ui.activity.detail.DetailMovieActivity
 import com.test.movieapp.util.VmData
-
 
 class MainActivity : AppCompatActivity() {
 

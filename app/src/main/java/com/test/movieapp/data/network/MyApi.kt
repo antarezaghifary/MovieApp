@@ -1,15 +1,22 @@
 package com.test.movieapp.data.network
 
-import com.test.movieapp.data.model.popular.GenreResponse
-import com.test.movieapp.data.model.popular.PopularResponse
+import com.test.movieapp.data.model.genre.GenreResponse
+import com.test.movieapp.data.model.movie.PopularResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface MyApi {
+
+    @GET("genre/movie/list")
+    fun genre(
+        @Query("api_key") api_key: String,
+        @Header("language") language: String
+    ): Single<GenreResponse>
+
     @GET("discover/movie")
-    fun popular(
+    fun movie(
         @Query("page") page: Int,
         @Query("limit") limit: Int,
         @Query("api_key") api_key: String,
@@ -17,9 +24,4 @@ interface MyApi {
         @Header("language") language: String
     ): Single<PopularResponse>
 
-    @GET("genre/movie/list")
-    fun genre(
-        @Query("api_key") api_key: String,
-        @Header("language") language: String
-    ): Single<GenreResponse>
 }

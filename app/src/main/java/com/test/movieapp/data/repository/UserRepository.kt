@@ -1,7 +1,7 @@
 package com.test.movieapp.data.repository
 
-import com.test.movieapp.data.model.popular.GenresItem
-import com.test.movieapp.data.model.popular.ResultsItem
+import com.test.movieapp.data.model.genre.GenresItem
+import com.test.movieapp.data.model.movie.ResultsItem
 import com.test.movieapp.data.network.MyApi
 import io.reactivex.Single
 import org.koin.core.component.KoinComponent
@@ -11,11 +11,11 @@ class UserRepository : KoinComponent {
 
     private val api: MyApi by inject()
 
-    fun popular(
+    fun movie(
         page: Int,
         with_genres: Int
     ): Single<List<ResultsItem>> {
-        return api.popular(
+        return api.movie(
             page,
             10,
             "34d28168ca773abb8e7098976e940a85",

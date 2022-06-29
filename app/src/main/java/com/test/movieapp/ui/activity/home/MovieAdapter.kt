@@ -2,17 +2,17 @@ package com.test.movieapp.ui.activity.home
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup
-import androidx.paging.PagedListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
 import com.oratakashi.viewbinding.core.binding.recyclerview.ViewHolder
 import com.oratakashi.viewbinding.core.binding.recyclerview.viewBinding
-import com.test.movieapp.data.model.popular.ResultsItem
+import com.test.movieapp.data.model.movie.ResultsItem
 import com.test.movieapp.databinding.ItemMovieBinding
 
 class MovieAdapter(
     private val onClick: (ResultsItem) -> Unit
-) : PagedListAdapter<ResultsItem, ViewHolder<ItemMovieBinding>>(
+) : PagingDataAdapter<ResultsItem, ViewHolder<ItemMovieBinding>>(
     DIFF_CALLBACK
 ) {
     override fun onCreateViewHolder(

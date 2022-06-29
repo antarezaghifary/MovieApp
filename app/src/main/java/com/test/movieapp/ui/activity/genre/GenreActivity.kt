@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
-import com.test.movieapp.data.model.popular.GenresItem
+import com.test.movieapp.data.model.genre.GenresItem
 import com.test.movieapp.databinding.ActivityGenreBinding
 import com.test.movieapp.ui.activity.home.MainActivity
 import com.test.movieapp.util.VmData

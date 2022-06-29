@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.oratakashi.viewbinding.core.binding.livedata.liveData
-import com.test.movieapp.data.model.popular.GenresItem
-import com.test.movieapp.data.model.popular.ResultsItem
+import com.test.movieapp.data.model.genre.GenresItem
+import com.test.movieapp.data.model.movie.ResultsItem
 import com.test.movieapp.data.repository.UserRepository
 import com.test.movieapp.util.VmData
 import io.reactivex.android.schedulers.AndroidSchedulers

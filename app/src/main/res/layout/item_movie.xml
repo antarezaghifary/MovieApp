@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="24dp">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgMovie"
         android:layout_width="150dp"
         android:layout_height="175dp"
-        android:src="@color/purple_200" />
+        android:scaleType="fitXY"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"

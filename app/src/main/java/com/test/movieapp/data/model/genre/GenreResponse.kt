@@ -1,4 +1,4 @@
-package com.test.movieapp.data.model.popular
+package com.test.movieapp.data.model.genre
 
 import com.google.gson.annotations.SerializedName
 
