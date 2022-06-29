@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.bumptech.glide.Glide
 import com.oratakashi.viewbinding.core.binding.recyclerview.ViewHolder
 import com.oratakashi.viewbinding.core.binding.recyclerview.viewBinding
+import com.test.movieapp.R
 import com.test.movieapp.databinding.ItemReviewBinding
+import com.test.movieapp.util.DateUtil
 
 class DetailMovieAdapter :
     PagedListAdapter<com.test.movieapp.data.model.review.ResultsItem, ViewHolder<ItemReviewBinding>>(
@@ -28,11 +30,13 @@ class DetailMovieAdapter :
 
                 Glide.with(imgProfile.context)
                     .load(url?.substring(remove))
-                    .skipMemoryCache(true)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.placeholder)
                     .centerCrop()
                     .into(imgProfile)
+
                 tvNama.text = it.author
-                tvTanggal.text = it.createdAt
+                tvTanggal.text = DateUtil().dateFormat(it.createdAt)
                 tvReview.text = it.content
 
             }

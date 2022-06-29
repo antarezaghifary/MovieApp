@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/bg_back_button.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_arrow_24dp.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/img_alert_movie.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_detail_movie.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_genre.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17" />

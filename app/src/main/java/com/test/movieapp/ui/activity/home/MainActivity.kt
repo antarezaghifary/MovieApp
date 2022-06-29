@@ -3,11 +3,11 @@ package com.test.movieapp.ui.activity.home
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
-import com.oratakashi.viewbinding.core.tools.toast
 import com.test.movieapp.data.model.movie.ResultsItem
 import com.test.movieapp.databinding.ActivityMainBinding
 import com.test.movieapp.ui.activity.detail.DetailMovieActivity
@@ -52,8 +52,13 @@ class MainActivity : AppCompatActivity() {
         viewModel.popular.observe(this) {
             when (it) {
                 is VmData.Loading -> {
-                    toast("loading")
                     binding.swipeRefresh.isRefreshing = true
+                }
+
+                is VmData.Empty -> {
+                    binding.rvMovie.visibility = View.GONE
+                    binding.imgAlert.visibility = View.VISIBLE
+                    binding.tvAlert.visibility = View.VISIBLE
                 }
 
                 is VmData.Success -> {

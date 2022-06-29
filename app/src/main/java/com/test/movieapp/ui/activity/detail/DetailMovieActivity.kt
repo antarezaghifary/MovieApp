@@ -71,6 +71,11 @@ class DetailMovieActivity : AppCompatActivity() {
                 is VmData.Loading -> {
 
                 }
+
+                is VmData.Empty -> {
+
+                }
+
                 is VmData.Success -> {
 
                 }
@@ -82,5 +87,10 @@ class DetailMovieActivity : AppCompatActivity() {
             binding.rvReview.adapter = adapter
             binding.rvReview.layoutManager = LinearLayoutManager(this)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return super.onSupportNavigateUp()
     }
 }

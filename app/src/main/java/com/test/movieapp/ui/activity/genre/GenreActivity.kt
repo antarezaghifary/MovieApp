@@ -3,6 +3,7 @@ package com.test.movieapp.ui.activity.genre
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,6 +36,13 @@ class GenreActivity : AppCompatActivity() {
                 is VmData.Loading -> {
 
                 }
+
+                is VmData.Empty -> {
+                    binding.rvGenre.visibility = View.GONE
+                    binding.imgAlert.visibility = View.VISIBLE
+                    binding.tvAlert.visibility = View.VISIBLE
+                }
+
                 is VmData.Success -> {
                     adapter.addAll(it.data)
                     Log.e("TAG", "setObservableGenres: ${it.data}")
