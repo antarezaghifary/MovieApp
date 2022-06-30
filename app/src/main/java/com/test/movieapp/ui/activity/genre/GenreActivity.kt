@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
+import com.oratakashi.viewbinding.core.tools.toast
 import com.test.movieapp.data.model.genre.GenresItem
 import com.test.movieapp.databinding.ActivityGenreBinding
 import com.test.movieapp.ui.activity.home.MainActivity
@@ -34,7 +35,9 @@ class GenreActivity : AppCompatActivity() {
         viewModel.genre.observe(this) {
             when (it) {
                 is VmData.Loading -> {
-
+                    binding.rvGenre.visibility = View.GONE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
 
                 is VmData.Empty -> {
@@ -44,11 +47,17 @@ class GenreActivity : AppCompatActivity() {
                 }
 
                 is VmData.Success -> {
+                    binding.rvGenre.visibility = View.VISIBLE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                     adapter.addAll(it.data)
-                    Log.e("TAG", "setObservableGenres: ${it.data}")
                 }
-                is VmData.Failure -> {
 
+                is VmData.Failure -> {
+                    toast("${it.message}")
+                    binding.rvGenre.visibility = View.GONE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
             }
             binding.rvGenre.adapter = adapter

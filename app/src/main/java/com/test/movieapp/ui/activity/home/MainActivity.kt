@@ -53,6 +53,9 @@ class MainActivity : AppCompatActivity() {
             when (it) {
                 is VmData.Loading -> {
                     binding.swipeRefresh.isRefreshing = true
+                    binding.rvMovie.visibility = View.GONE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
 
                 is VmData.Empty -> {
@@ -63,10 +66,16 @@ class MainActivity : AppCompatActivity() {
 
                 is VmData.Success -> {
                     binding.swipeRefresh.isRefreshing = false
+                    binding.rvMovie.visibility = View.VISIBLE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
 
                 is VmData.Failure -> {
                     binding.swipeRefresh.isRefreshing = false
+                    binding.rvMovie.visibility = View.GONE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
             }
             viewModel.data.observe(this, adapter::submitList)

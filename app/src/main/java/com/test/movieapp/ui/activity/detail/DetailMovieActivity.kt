@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.google.android.material.appbar.AppBarLayout
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
+import com.oratakashi.viewbinding.core.tools.toast
 import com.test.movieapp.R
 import com.test.movieapp.data.model.trailer.ResultsItem
 import com.test.movieapp.databinding.ActivityDetailMovieBinding
@@ -78,7 +79,9 @@ class DetailMovieActivity : AppCompatActivity() {
         viewModel.review.observe(this) {
             when (it) {
                 is VmData.Loading -> {
-
+                    binding.rvReview.visibility = View.GONE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
 
                 is VmData.Empty -> {
@@ -88,10 +91,15 @@ class DetailMovieActivity : AppCompatActivity() {
                 }
 
                 is VmData.Success -> {
-
+                    binding.rvReview.visibility = View.VISIBLE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
                 is VmData.Failure -> {
-
+                    toast("${it.message}")
+                    binding.rvReview.visibility = View.GONE
+                    binding.imgAlert.visibility = View.GONE
+                    binding.tvAlert.visibility = View.GONE
                 }
             }
             viewModel.data.observe(this, adapter::submitList)

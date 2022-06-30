@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.oratakashi.viewbinding.core.binding.livedata.liveData
-import com.test.movieapp.data.model.video.ThumbnailResponse
 import com.test.movieapp.data.paging.factory.ReviewFactory
 import com.test.movieapp.data.repository.UserRepository
 import com.test.movieapp.util.VmData
@@ -28,10 +27,6 @@ class DetailMovieViewModel : ViewModel(), KoinComponent {
         VmData.default()
     )
 
-    val thumbnail: MutableLiveData<VmData<ThumbnailResponse>> by liveData(
-        VmData.default()
-    )
-
     private val repository: UserRepository by inject()
     private val compositeDisposable: CompositeDisposable by lazy {
         CompositeDisposable()
@@ -45,7 +40,7 @@ class DetailMovieViewModel : ViewModel(), KoinComponent {
     ) {
         LivePagedListBuilder(
             ReviewFactory(review, movie_id),
-            3
+            10
         ).build().observe(lifecycleOwner, data::postValue)
     }
 
