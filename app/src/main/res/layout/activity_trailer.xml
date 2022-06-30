@@ -28,7 +28,7 @@
         app:showYouTubeButton="false" />
 
     <ImageView
-        android:id="@+id/ivBack"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

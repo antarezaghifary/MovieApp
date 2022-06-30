@@ -43,13 +43,13 @@ class TrailerActivity : AppCompatActivity() {
                 it.addFullScreenListener(object : YouTubePlayerFullScreenListener {
                     override fun onYouTubePlayerEnterFullScreen() {
                         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                        ivBack.gone()
+                        btnBack.gone()
                         this@TrailerActivity.hideSystemUI()
                     }
 
                     override fun onYouTubePlayerExitFullScreen() {
                         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                        ivBack.visible()
+                        btnBack.visible()
                         this@TrailerActivity.showSystemUI()
                     }
                 })
@@ -68,6 +68,10 @@ class TrailerActivity : AppCompatActivity() {
                 } catch (ex: ActivityNotFoundException) {
                     startActivity(webIntent)
                 }
+            }
+
+            btnBack.setOnClickListener {
+                finish()
             }
         }
     }
