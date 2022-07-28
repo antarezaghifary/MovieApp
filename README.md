@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-! ![](https://github.com/antarezaghifary/MovieApp/blob/master/screenshot/img1.jpeg?raw=true) | ![] 
+| ![](https://github.com/antarezaghifary/MovieApp/blob/master/screenshot/img1.jpeg?raw=true) | ![] 
 (https://github.com/antarezaghifary/MovieApp/blob/master/screenshot/img2.jpeg?raw=true) | ![] 
 (https://github.com/antarezaghifary/MovieApp/blob/master/screenshot/img3.jpeg?raw=true) |
 | :---: | :---: | :---: |
